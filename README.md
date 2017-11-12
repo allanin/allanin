@@ -1,2 +1,2 @@
-# allanin
-Repository for overlay allanin
+# emunin
+Repository for overlay Nintendo emulators

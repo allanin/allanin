@@ -1,0 +1,9 @@
+[Unit]
+Description=allanin
+Requires=multi-user.target graphical.target
+After=graphical.target
+Conflicts=rescue.target
+AllowIsolate=yes
+
+[Install]
+Alias=default.target
