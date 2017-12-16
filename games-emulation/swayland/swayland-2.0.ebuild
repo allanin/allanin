@@ -20,9 +20,3 @@ RDEPEND="
 	i3status? ( x11-misc/i3status  )
 	urxvt? ( x11-terms/rxvt-unicode  )
 "
-
-pkg_preinst() {
-}
-
-pkg_postinst() {
-}

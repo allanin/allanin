@@ -1,7 +1,5 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# enewuser lakka -1 /bin/sh /home/lakka lakka "wheel,audio,usb,users,video,input,disk"
-
 
 EAPI=6
 inherit user
@@ -15,11 +13,8 @@ IUSE="allanin retroarch"
 
 RDEPEND="
 	allanin? ( games-emulation/allanin )
-	retroarch? ( games-emulation/retrorarch )
+	retroarch? ( games-emulation/retroarch )
 "
-
-pkg_preinst() {
-}
 
 pkg_postinst() {
 	chown -R allanin:allanin /storage
