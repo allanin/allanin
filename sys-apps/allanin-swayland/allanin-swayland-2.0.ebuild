@@ -12,7 +12,7 @@ KEYWORDS="amd64 x86"
 IUSE="allanin termite sway chromium mpv i3status urxvt"
 
 RDEPEND="
-	allanin? ( games-emulation/allanin )
+	allanin-base? ( sys-apps/allanin-base )
 	termite? ( x11-terms/termite )
 	sway? ( dev-libs/sway )
 	chromium? ( www-client/chromium )
