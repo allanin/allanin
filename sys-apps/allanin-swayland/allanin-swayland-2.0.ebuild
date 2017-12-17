@@ -9,7 +9,7 @@ HOMEPAGE="https://www.lakka.org"
 
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="allanin termite sway chromium mpv i3status urxvt"
+IUSE="allanin-base termite sway chromium mpv i3status urxvt"
 
 RDEPEND="
 	allanin-base? ( sys-apps/allanin-base )
