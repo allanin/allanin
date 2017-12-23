@@ -2,14 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit user
+inherit user eutils toolchain-funcs versionator git-r3
 
 DESCRIPTION="A Gentoo like interpretation of Lakka - Default distribution for RetroArch"
 HOMEPAGE="https://www.lakka.org"
 
+EGIT_REPO_URI="https://github.com/allanin/systemd-emunin.git"
+
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="allanin-base retroarch"
+
+DEPEND=""
 
 RDEPEND="
 	allanin-base? ( sys-apps/allanin-base )
