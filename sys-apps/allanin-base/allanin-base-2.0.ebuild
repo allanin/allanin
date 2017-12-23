@@ -41,7 +41,6 @@ pkg_postinst() {
 	elog "Enable following systemd services with these commands"
 	elog "systemctl enable sshd"
 	elog "systemctl enable systemd-networkd.service"
-	elog "systemctl enable systemd-resolved.service"
 	elog "systemctl enable wpa_supplicant.service"
 	elog "systemctl enable bluetooth.service"
 	elog "systemctl enable allanin.service"
