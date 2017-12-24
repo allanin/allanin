@@ -7,7 +7,7 @@ inherit user eutils toolchain-funcs versionator git-r3
 DESCRIPTION="A Gentoo like interpretation of Lakka - Default distribution for RetroArch"
 HOMEPAGE="https://www.lakka.org"
 
-EGIT_REPO_URI="https://github.com/allanin/systemd-emunin.git"
+EGIT_REPO_URI="https://github.com/allanin/allanin-emunin.git"
 
 SLOT="0"
 KEYWORDS="amd64 x86"
@@ -20,22 +20,15 @@ RDEPEND="
 	retroarch? ( games-emulation/retroarch )
 "
 
-pkg_postinst() {
-	chown -R allanin:allanin /storage
-
-	elog "Enable following systemd services with these commands"
-	elog "systemctl enable sshd"
-	elog "systemctl enable systemd-networkd.service"
-	elog "systemctl enable wpa_supplicant.service"
-	elog "systemctl enable bluetooth.service"
-	elog "systemctl enable emunin.service"
-	elog "systemctl enable connman"
-	elog ""
-	elog "If you use udevil enable execute following commands"
-	elog "systemctl enable devmon@allanin"
-	elog ""
-	elog "Enable following connman services with these commands"
-	elog "connmanctl enable wifi"
-	elog "connmanctl enable bluetooth"
-	elog "connmanctl enable ethernet"
+src_install() {
+        cp -R "${S}/etc" "${D}/" || die "Install failed!"
 }
+
+src_install() {
+        cp -R "${S}/etc" "${D}/" || die "Install failed!"
+}
+
+pkg_postinst() {
+        systemctl enable emunin
+}
+

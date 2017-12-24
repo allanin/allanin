@@ -27,29 +27,22 @@ RDEPEND="
 "
 
 pkg_preinst() {
-	enewgroup allanin
-	enewuser allanin -1 /bin/bash /home/lakka "allanin,wheel,audio,usb,users,video,input,disk,plugdev"
 	dodir /storage
-#	insinto /etc/systemd/system
-#	newins "${FILESDIR}/allanin.service" allanin.service
-#	newins "${FILESDIR}/allanin.target" allanin.target
+	enewgroup allanin
+	enewuser allanin -1 /bin/bash /storage "allanin,wheel,audio,usb,users,video,input,disk,plugdev"
 }
 
 pkg_postinst() {
 	chown -R allanin:allanin /storage
 
-	elog "Enable following systemd services with these commands"
-	elog "systemctl enable sshd"
-	elog "systemctl enable systemd-networkd.service"
-	elog "systemctl enable wpa_supplicant.service"
-	elog "systemctl enable bluetooth.service"
-	elog "systemctl enable allanin.service"
-	elog "systemctl enable connman"
+	elog "Enabling required systemd services"
 	elog ""
-	elog "If you use udevil enable execute following commands"
-	elog "systemctl enable devmon@allanin"
-	elog ""
-	elog "Enable following connman services with these commands"
+	systemctl enable sshd.service
+	systemctl enable bluetooth.service
+	systemctl enable connman.service
+	systemctl enable devmon@allanin
+
+	elog "Enable following connman services with these commands for networking support"
 	elog "connmanctl enable wifi"
 	elog "connmanctl enable bluetooth"
 	elog "connmanctl enable ethernet"

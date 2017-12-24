@@ -7,6 +7,8 @@ inherit user eutils toolchain-funcs versionator git-r3
 DESCRIPTION="A Gentoo like interpretation of Lakka - Default distribution for RetroArch"
 HOMEPAGE="https://www.lakka.org"
 
+EGIT_REPO_URI="https://github.com/allanin/systemd-swayland.git"
+
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="allanin-base termite sway chromium mpv i3status urxvt"
@@ -23,28 +25,10 @@ RDEPEND="
 	urxvt? ( x11-terms/rxvt-unicode  )
 "
 
-pkg_preinst() {
-	insinto /etc/systemd/system
-	newins "${FILESDIR}/swayland.service" swayland.service
-	newins "${FILESDIR}/swayland.target" swayland.target
+src_install() {
+	cp -R "${S}/etc" "${D}/" || die "Install failed!"
 }
 
 pkg_postinst() {
-        chown -R allanin:allanin /storage
-
-        elog "Enable following systemd services with these commands"
-        elog "systemctl enable sshd"
-        elog "systemctl enable systemd-networkd.service"
-        elog "systemctl enable wpa_supplicant.service"
-        elog "systemctl enable bluetooth.service"
-        elog "systemctl enable swayland.service"
-        elog "systemctl enable connman"
-        elog ""
-        elog "If you use udevil enable execute following commands"
-        elog "systemctl enable devmon@allanin"
-        elog ""
-        elog "Enable following connman services with these commands"
-        elog "connmanctl enable wifi"
-        elog "connmanctl enable bluetooth"
-        elog "connmanctl enable ethernet"
+	systemctl enable swayland
 }
