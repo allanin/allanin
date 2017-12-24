@@ -7,8 +7,6 @@ inherit user eutils toolchain-funcs versionator git-r3
 DESCRIPTION="A Gentoo like interpretation of Lakka - Default distribution for RetroArch"
 HOMEPAGE="https://www.lakka.org"
 
-EGIT_REPO_URI="https://github.com/allanin/systemd-swayland.git"
-
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="allanin-base termite sway chromium mpv i3status urxvt"
@@ -24,6 +22,12 @@ RDEPEND="
 	i3status? ( x11-misc/i3status  )
 	urxvt? ( x11-terms/rxvt-unicode  )
 "
+
+pkg_preinst() {
+	insinto /etc/systemd/system
+	newins "${FILESDIR}/swayland.service" swayland.service
+	newins "${FILESDIR}/swayland.target" swayland.target
+}
 
 pkg_postinst() {
         chown -R allanin:allanin /storage

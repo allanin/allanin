@@ -1,7 +1,7 @@
 [Unit]
-Description=sway
+Description=swayland
 After=graphical.target
-ConditionKernelCommandLine=!sway=0
+ConditionKernelCommandLine=!swayland=0
 Requires=graphical.target
 
 [Service]
@@ -19,4 +19,5 @@ RestartSec=2
 StartLimitInterval=0
 
 [Install]
-WantedBy=sway.target
+WantedBy=swayland.target
+
