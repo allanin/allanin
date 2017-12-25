@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/allanin/systemd-swayland.git"
 
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="allanin-base termite sway chromium mpv i3status urxvt"
+IUSE="allanin-base termite sway chromium-browser mpv i3status urxvt"
 
 DEPEND=""
 
@@ -19,7 +19,7 @@ RDEPEND="
 	allanin-base? ( sys-apps/allanin-base )
 	termite? ( x11-terms/termite )
 	sway? ( dev-libs/sway )
-	chromium? ( www-client/chromium )
+	chromium-browser? ( www-client/chromium )
 	mpv? ( media-video/mpv )
 	i3status? ( x11-misc/i3status  )
 	urxvt? ( x11-terms/rxvt-unicode  )
